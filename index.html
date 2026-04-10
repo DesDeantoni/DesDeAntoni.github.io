@@ -1,348 +1,663 @@
-
 <!DOCTYPE html>
-<html>
 <html lang="en-US">
 <head>
-    <title>Desdemona DeAntoni</title>
-    
-    
-    <meta charset="UTF-8">
-    <meta name="Author" content="Desdemona DeAntoni">
-    <meta name="description" content="Resume">
-    <meta name="keywords" content="Desdemona DeAntoni, DeAntoni, Desdemona, Indeed, Linkedin, Applicant, Resume">
-    <meta http-equiv="refresh" content="30">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Desdemona DeAntoni">
+  <meta name="description" content="Desdemona DeAntoni — Operations & Implementation Leader in Healthcare, Aesthetics, and UCaaS">
+  <title>Desdemona DeAntoni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        
- ul.topnav {
-  width: 60%;
-  list-style-type: none;
-  margin-left: 20%;
-  padding: 0;
-  overflow: hidden;
-  background-color: #789;
-}
+    :root {
+      --black: #0d0d0d;
+      --charcoal: #1c1c1c;
+      --dark-grey: #2e2e2e;
+      --mid-grey: #5a5a5a;
+      --silver: #9a9a9a;
+      --light-grey: #d4d4d4;
+      --near-white: #f0efee;
+      --white: #ffffff;
+      --accent: #c0b49a;
+    }
 
-ul.topnav li {float: right;}
+    html { scroll-behavior: smooth; }
 
-ul.topnav li a {
-  display: block;
-  color: white;;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    body {
+      background: var(--near-white);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
 
-ul.topnav li a:hover:not(.active) {background-color: #111;}
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13,13,13,0.96);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 56px;
+    }
+    nav .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+    nav ul a {
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--white); }
 
-ul.topnav li a.active {background-color: #999;}
+    /* ── BANNER / HERO ── */
+    #hero {
+      margin-top: 56px;
+      background: var(--black);
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 8vw;
+    }
 
-ul.topnav li.right {float: right;}
+    /* geometric shapes */
+    .geo {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .geo-rect-1 {
+      position: absolute;
+      top: -40px; left: -40px;
+      width: 280px; height: 280px;
+      background: var(--dark-grey);
+      transform: rotate(18deg);
+      opacity: 0.5;
+    }
+    .geo-rect-2 {
+      position: absolute;
+      bottom: -60px; right: 120px;
+      width: 200px; height: 200px;
+      background: var(--dark-grey);
+      transform: rotate(30deg);
+      opacity: 0.3;
+    }
+    .geo-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 38%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--mid-grey), transparent);
+      opacity: 0.4;
+    }
 
-@media screen and (max-width: 600px) {
-  ul.topnav li.right, 
-  ul.topnav li {float: none;}
-}       
-        
-        
-        
-        
-        
-        aside {
-            text-align: center;
-            
-        }       
-        
-        
-        
-  
-div {
-    float:left;
-    text-align: center;
-     width: 60%;
-    margin-left: 20%;
-} 
-        
-  ul {
-  float: left;
-  width: 50%; 
-  margin-left: 25%;
-  margin-right: 300px;
-}    
-       h1 {
-  float: left;
-  width: 60%;
-  margin-left: 20%;
-}      
-    
-        
-    h3 {
- float: left;
-  width: 60%; 
-  margin-left: 22%;
-}      
-     
-   h4 {
-  float: left;
-  width: 20%; 
-  margin-left: 25%;
-}      
-        
-   h5 {
-  float: left;
-  width: 60%; 
-  margin-left: 20%;
-}      
-          
-        p {
-            float:left;
-            width:55%;
-            margin-left:20%;
-        }       
-        
-.left, .right {
-  float: left;
-  width: 20%; 
-}
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-.main {
-  float: left;
-  width: 60%; 
-}
+    /* circular headshot */
+    .hero-photo {
+      flex-shrink: 0;
+      width: 190px; height: 190px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      overflow: hidden;
+      background: var(--dark-grey);
+      box-shadow: 0 0 0 8px rgba(192,180,154,0.12);
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
 
+    .hero-text { flex: 1; }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+    }
+    .hero-text .tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .hero-text .summary {
+      color: var(--light-grey);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+    .hero-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-links a {
+      display: inline-block;
+      padding: 9px 22px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.25s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--black);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--light-grey);
+      border-color: var(--mid-grey);
+    }
+    .btn-outline:hover {
+      border-color: var(--light-grey);
+      color: var(--white);
+    }
 
-@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%; 
-  }
-}
-</style>
-    
-    <link rel="stylesheet" href="mystyle.css">
+    /* ── MAIN LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 8vw;
+    }
+
+    section {
+      padding: 72px 0 0;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 36px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    /* ── COMPETENCIES ── */
+    .competency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .competency-item {
+      background: var(--white);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: var(--dark-grey);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .cert-badge {
+      background: var(--charcoal);
+      color: var(--light-grey);
+      padding: 14px 18px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid var(--accent);
+    }
+    .cert-badge .cert-issuer {
+      font-size: 0.68rem;
+      color: var(--silver);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .job {
+      margin-bottom: 52px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 40px;
+    }
+    .job-meta {
+      padding-top: 4px;
+    }
+    .job-meta .company {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mid-grey);
+    }
+    .job-meta .location {
+      font-size: 0.75rem;
+      color: var(--silver);
+      margin-top: 2px;
+    }
+    .job-meta .dates {
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+    }
+    .job-content .role-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+    .job-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .job-content ul li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 10px;
+      font-size: 0.875rem;
+      color: var(--dark-grey);
+      line-height: 1.65;
+    }
+    .job-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8em;
+    }
+
+    .job-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--light-grey);
+      margin-bottom: 52px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-block {
+      background: var(--white);
+      padding: 28px 32px;
+      border-left: 4px solid var(--accent);
+    }
+    .edu-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .edu-block .edu-school {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    .edu-block ul {
+      list-style: none;
+    }
+    .edu-block ul li {
+      font-size: 0.875rem;
+      color: var(--dark-grey);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .edu-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px;
+      background: var(--black);
+      padding: 40px 8vw;
+      text-align: center;
+    }
+    footer .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 0.1em;
+    }
+    footer .footer-links {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    footer .footer-links a {
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    footer .footer-links a:hover { color: var(--accent); }
+    footer .footer-copy {
+      margin-top: 24px;
+      font-size: 0.72rem;
+      color: var(--mid-grey);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      nav ul { gap: 20px; }
+      #hero { padding: 48px 6vw; min-height: auto; }
+      .hero-inner { flex-direction: column; gap: 28px; text-align: center; }
+      .hero-photo { width: 140px; height: 140px; }
+      .hero-text .summary { margin: 0 auto; }
+      .hero-links { justify-content: center; }
+      .page-wrap { padding: 0 6vw; }
+      .job { grid-template-columns: 1fr; gap: 8px; }
+      .job-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; }
+      .job-meta .dates { margin-top: 0; }
+    }
+  </style>
 </head>
-    
-    
 <body>
-    
-    
-    <h1 style="font-size:3vw">Desdemona DeAntoni</h1>
-    
-      
-    
-   
- 
-  <ul class="topnav">
-  <li><a class="active" href="mailto:DesDeAntoni@Yahoo.com">Contact</a> </li>
-  <li><a href="https://www.linkedin.com/in/desdemona-deantoni-58627392/">LinkedIn</a></li>
-<li><a href="https://my.indeed.com/p/desdemonad-2zulgco">Indeed</a></li>
-  
+
+<!-- NAV -->
+<nav>
+  <div class="logo">D. DeAntoni</div>
+  <ul>
+    <li><a href="#competencies">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-      
-   <div><hr></div> 
-   
-    <div>
-    <img src="Profileheader.jpg" style="max-width:100%;height:auto;">
-        </div>   
-    
- <p> Medical Practice Manager with a Keen Ability to Manage and Coordinate Various Business Operations and Projects. With a Specialization in Information Governance, Compliance and Marketing.
-</p>
- 
-<div><hr></div>
-   
-    <section>
-    <h3>Head Clerk - Bookkeeping & Admin - Safeway - Superior, CO </h3>
-    <h3>June 2023 to Current</h3>
-    
-    <ul>
-    <li>High volume cash handling. Manages cash accuracy, and cash safe audits and provides accurate records of store sales and related transactions. </li>
-    <br>
-    <li>Key holder; proficient in opening and closing PIC duties. Proven ability to make necessary decisions to operate the store at maximum profit, efficiency, and with superior customer service.  </li>
-    <br>
-    <li>Professional ability to handle unforeseen circumstances and emergencies using strong communication and interpersonal skills that improve store operations, customer service, and compliance. </li>
-    <br>
-    <li>Track employee attendance or schedule violations. Review employee time records for compliance with company policies and report problems to store management.</li>
-    <br>
-    </ul>
-</section>  
-    
-   <section>
-    <h3>Corporate Sales and Support - Tier 2 - Vail Resorts - Broomfield, CO </h3>
-    <h3>August 2023 to Current</h3>
-    
-    <ul>
-    <li>Solving complex technical issues related to app features, authentication, RFID media, fraud, and security-related concerns. </li>
-    <br>
-    <li>Resolving escalated customer complaints regarding refunds, sales, shipping, and various resort-related concerns.</li>
-    <br>
-    <li>Meeting and exceeding KPIs of solving 50 daily Tickets and calls.</li>
-    <br>
-    <li>Communicates with multiple departments and department leadership to ensure quick and efficient resolution.</li>
-    <br>
-    </ul>
-</section>  
-    
-<section>
-    <h3>Quaity Control Analyst - Disaster Recovery - The Workforce Group - Denver, CO </h3>
-    <h3>November 2021 to November 2022</h3>
-    
-    <ul>
-    <li> Responsible for collecting, analyzing, and auditing data in an emergency disaster recovery scenario.</li>
-    <br>
-    <li>Highly skilled in collecting difficult-to-acquire data in unique ways. Intelligent data analysis that focuses on problem-solving. Auditing data to ensure the highest level of quality and control.</li>
-    <br>
-    <li>Carry out government policies and procedures, including ensuring that personally identifiable information is handled according to government standards.</li>
-    <br>
-    <li>Ability to communicate with a diverse population and draw upon common experiences to develop peer relationships and assist in providing relevant resources.</li>
-    <br>
-    <li>Assist Tier 1 support in identifying issues in data analysis and provide a corrective path.</li>
-    <br>
-    </ul>
-</section>    
-     
-    <br>
-    
-<section>
-    
-    <h3> Computer Technician - Robert Half - Technology Information Group - Louisville, CO </h3>
-    <h3>December 2021 to January 2022</h3>
-  
-<ul>
-    <li>Effectively carry out duties in a team-oriented, fast-paced work environment.</li>
-    <br>
-    <li>Shipping & receiving, preparing large order outbound shipments for clients, and receiving inbound shipments from vendors.</li>
-    <br>
-    <li>Update Documentation, Network Devices, Tag Management System.</li>
-    <br>
-</ul>
-</section>  
-    
-<br>
-    
-    
-<section>
+</nav>
 
-    <h3> Driver - Lyft/Uber - San Diego, CA</h3>
-    <h3> March 2019 to June 2020</h3>
-  
-<ul>
-    <li>Completed more than 2000 safe and successful trips and deliveries. Ensuring customers arrive safely and timely to destinations while ensuring excellent customer satisfaction with a sense of urgency, safety and kindness.</li>
-  <br>
-    <li>Create and maintain MS Excel spreadsheets tracking mileage, vehicle maintenance, and additional expenses. Manage transportation routes via use of iPhone app technology using Google Maps.</li>
-  <br>
-    <li>Customer focused problem solver with ability to provide last minute solutions calmly, in high-stress situations.</li>
-  <br>
-    <li>Strong professional ability to handle unforeseen circumstances and delays. Ability to multi-task; following GPS navigational directions while using expert communication and interpersonal skills to deliver superior customer service, time management and safety.</li>
-  <br>
-</ul>
-    
+<!-- HERO / BANNER -->
+<section id="hero">
+  <div class="geo">
+    <div class="geo-rect-1"></div>
+    <div class="geo-rect-2"></div>
+    <div class="geo-line"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="Headshot.png" alt="Desdemona DeAntoni">
+    </div>
+    <div class="hero-text">
+      <p class="tagline">Operations &amp; Business Management · Information Governance · Compliance · Marketing</p>
+      <h1>Desdemona<br>DeAntoni</h1>
+      <p class="summary">
+        Business management leader with 15+ years coordinating complex operations, cross-functional teams, and compliance-driven environments across multiple industries. Known for translating business needs into operational systems that work — and for the people skills to make them stick. A rare combination of analytical depth, marketing instinct, and hands-on execution.
+      </p>
+      <div class="hero-links">
+        <a href="/cdn-cgi/l/email-protection#5a1e3f291e3f1b342e3534331a033b32353574393537" class="btn-primary">Contact Me</a>
+        <a href="https://www.linkedin.com/in/desdemona-deantoni-58627392/" target="_blank" class="btn-outline">LinkedIn</a>
+        <a href="https://my.indeed.com/p/desdemonad-2zulgco" target="_blank" class="btn-outline">Indeed</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<br>
+<!-- MAIN CONTENT -->
+<div class="page-wrap">
 
-<section>
-    
-<h3>Office Manager - Phillip Milgram, M.D. - Carlsbad, CA </h3>
-<h3>January 2016 to January 2019</h3>
-<h4>Management</h4>
-<ul>
-  <li>Strategic management of medical office protocols, staff interaction to ensure stellar customer service as well as a professional efficient office environment;of a multi-specialty medical practice. to ensure a friendly, and professional medical experience.</li>
-<br>
-  <li>Supervise, hire and motivate office staff, provide new hire and ongoing training to both front and back-office staff.</li>
-<br>
-  <li>Work with vendors to order office supplies and conduct an inventory of medical supplies and equipment.</li>
-<br>
-    <li>Oversee patient surgery scheduling, while acting as patient liaison when collaborating with insurance companies to determine coverage.
-</li>
-</ul>
-<h4>Information Governance</h4>
-    <ul>
-    <li>Strong analytical skills used to identify technical business problems that can be solved using security concepts, technologies, and standards.
-</li>
-    <br>
-  <li>Management of and strict medical information confidentiality compliance.</li>
-<br>
-  <li>Create and implement practice protocols and procedures to maintain HIPAA compliance. Implementation, knowledge, and experience with electronic medical records (EMR), HIPAA policies, procedures, regulations, and compliance. </li>
-</ul>
-<h4>Marketing</h4>
-    <ul>
-  <li>Experience in branding through developing name recognition via social media marketing campaigns, CPM marketing campaigns, public television appearances, you tube videos, newspaper and print articles, blogs as well as collaboration sites.</li>
-<br>
-  <li>Improved ---close rate of cosmetic procedures from 20% to 97% via creating and implementing a systematic streamlined process for marketing, sales, and consultations.</li>
-<br>
-</ul>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-badge">
+        <div class="cert-issuer">RingCentral</div>
+        Certified Sales Professional
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">RingCentral</div>
+        Certified Delivery Partner (CDP)
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Zoom</div>
+        Zoom Sales Associate (ZSA)
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Zoom</div>
+        Zero Trust Security Associate (ZTSA)
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Zoom</div>
+        Certified Delivery Partner (CDP)
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Zoom</div>
+        Deployment Level 1
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Google Cloud</div>
+        Workspace Administration
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Google Cloud</div>
+        Managing Google Workspace
+      </div>
+      <div class="cert-badge">
+        <div class="cert-issuer">Google Cloud</div>
+        Google Workspace Security
+      </div>
+    </div>
+  </section>
 
-</section>
-  
-<Section>
-    
-<h3>Marketing Director - Clinique Sculpture - Carlsbad, CA - Contract</h3>
-<h3>February 2015 to June 2015</h3>
-<ul>
-  <li>Analyzed, developed, and re-structured cost-effective marketing strategies and campaigns. Website design using UI/UX principles to deliver content through intuitive design patterns.</li>
-<br>
-    <li>Individualized and engaging content writing for websites, social media sites, and blogs.</li>
-<br>
-  <li>In-depth insight into audiences utilizing Google Analytics to develop targeted campaigns.</li>
-<br>
-  <li>Highly skilled in social media management, social media marketing, coordination of CPM and CPC marketing campaigns, Google Ad Words, and SEO with a focus on a high organic ranking.</li>
-<br>
-  <li>Use Salesforce for CRM to develop relationships with current and potential clients, emphasizing patient retention and cross-selling to maximize profits.</li>
-<br>
-    <li>Extensive graphic design for digital and print projects utilizing Photoshop, Illustrator, Publisher, and Quark.</li>
-</ul>
-</Section>
+  <!-- COMPETENCIES -->
+  <section id="competencies">
+    <p class="section-label">What I Bring</p>
+    <h2 class="section-title">Core Competencies</h2>
+    <div class="competency-grid">
+      <div class="competency-item">Project Management &amp; Cross-Functional Leadership</div>
+      <div class="competency-item">Information Governance &amp; Compliance (HIPAA, PCI, NIST)</div>
+      <div class="competency-item">UCaaS Implementation — RingCentral &amp; Zoom</div>
+      <div class="competency-item">CRM &amp; ERP Systems (Salesforce, SAP, Oracle, NetSuite)</div>
+      <div class="competency-item">Data Analytics &amp; Quality Assurance (Power BI, SQL, Excel)</div>
+      <div class="competency-item">Healthcare &amp; Aesthetic Practice Operations</div>
+      <div class="competency-item">IT Support &amp; Security (VPN, DNS, TCP/IP, Google Workspace Admin)</div>
+      <div class="competency-item">Disaster Recovery &amp; Business Continuity</div>
+      <div class="competency-item">Digital Marketing, SEO &amp; Brand Strategy</div>
+      <div class="competency-item">Team Development &amp; Performance Optimization</div>
+      <div class="competency-item">EMR Implementation &amp; Clinical Workflow Design</div>
+      <div class="competency-item">Contract Negotiation &amp; RFP Response</div>
+    </div>
+  </section>
 
-<section>
-<h3>Practice Manager - Barefoot Laser Centers - La Jolla, CA - July 2009 to December 2013</h3>
- <ul>
-     <li>Oversee day to day office operations to support staff and maximize business profitability with a focus on marketing and sales.</li>
-<br>   
-     <li>Determine appropriate schedules for staff, patient procedures, equipment, using strong multi-tasking and time management skills to maximize patient flow.</li>
-<br>
-     <li>Demonstration of talent aquisition, employee development and engagement; responsible for interviewing and hiring employees, providing new hire training and support via positive reinforcement and coaching. Fluent understanding of all operations allows me to step in for employee support when needed at any level.</li>
-<br>   
-</ul>   
-</section>
-    
-<section>
-    <h3>Education - B.S. Information Technology - Currently Attending 4th Year</h3>
-      <h4>Specialization - Information Security</h4>
-      <ul>
-          <li>Information Governance, PCI and HIPPA Compliance, Knowledge of HI-TECH Framwork.</li>
-          <br>
-        <li>Organizational Security, Incident Response, Disaster Recovery, Buisness Continuity.</li>
-          <br>
-          <li>Operating System Hardening - Windows Server, Linux Server.</li>
-          
-      </ul>
-      
-    <br>
-    <br>
-    
-    
-    </section>  
-    
-    <section>
-        <h3> Certificates</h3>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">Career History</p>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">High Country Workplace Technologies</div>
+        <div class="location">Arvada, CO</div>
+        <div class="dates">Jan 2026 — Present</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Business Office Manager</div>
         <ul>
-            <li> <a href="https://www.coursera.org/account/accomplishments/certificate/WQMF4Y8KNU22">Google Cloud - Introduction to Workspace Administration</a></li>
-            <br>
-            <li><a href="https://www.coursera.org/account/accomplishments/certificate/K5F8YL4ZKAWH">Google Cloud - Managing Google Workspace</a></li>
-            <br>
-            <li><a href="https://www.coursera.org/account/accomplishments/certificate/4XT79L2EQLNY">Google Cloud - Google Workspace Security</a></li>
+          <li>Oversee daily business office operations for a telecom and integration solutions company, including AP/AR, vendor coordination, and contract administration.</li>
+          <li>Support RingCentral and Zoom projects as a Certified Delivery Partner and Certified Sales Professional — assisting with porting workflows, account setup, and live municipal deployments.</li>
+          <li>Directed PCI compliance within RingCX by identifying noncompliant call-handling paths, instructing technical staff on required workflow changes, and validating revised configurations against secure payment-processing standards.</li>
+          <li>Manage marketing and client-facing communications, including service updates, product documentation, and operational collateral.</li>
+          <li>Respond to RFPs and coordinate internal inputs to ensure accurate scope, pricing, and technical alignment.</li>
+          <li>Develop and refine internal processes for ticketing, SO/PO, and billing workflows to reduce friction across teams.</li>
         </ul>
-    </section>
-<br>
-<br>
-</body>
+      </div>
+    </div>
+    <div class="job-divider"></div>
 
-   <div>
-   <hr>
-  <footer>
-  
-  <p><a href="mailto:DesDeAntoni@Yahoo.com">DesDeAntoni@Yahoo.com</a></p>
-  <p>Author: Desdemona DeAntoni</p>
-</footer>  
-  </div>   
-</html>
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">Safeway</div>
+        <div class="location">Superior, CO</div>
+        <div class="dates">Jun 2023 — Present</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Head Clerk — Front End Management &amp; Bookkeeping</div>
+        <ul>
+          <li>Progressed from Bookkeeper to Person in Charge, expanding responsibilities to include store operations, financial oversight, and team leadership.</li>
+          <li>Perform technical service and troubleshooting on KAR cash recycler, ensuring operational uptime and accuracy in high-volume retail transactions.</li>
+          <li>Lead initiatives covering lottery inventory tracking, anti-money laundering compliance, and transaction reporting.</li>
+          <li>Use enterprise systems (CICS, KAR, Workbrain, SharePoint) to streamline reporting and compliance workflows.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job-divider"></div>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">Vail Resorts</div>
+        <div class="location">Broomfield, CO</div>
+        <div class="dates">Aug 2023 — May 2024</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Tier 2 Corporate Sales &amp; Support</div>
+        <ul>
+          <li>Resolved complex technical issues related to app features, authentication, RFID media, fraud, and security concerns.</li>
+          <li>Managed escalated customer complaints regarding refunds, sales, shipping, and resort operations with a focus on PCI compliance and information governance.</li>
+          <li>Consistently met and exceeded KPI of 50 resolved tickets and calls per day.</li>
+          <li>Coordinated with multiple departments and leadership to ensure efficient, documented resolution.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job-divider"></div>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">Workforce Group — Government Services</div>
+        <div class="location">Denver, CO</div>
+        <div class="dates">Nov 2021 — Nov 2022</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Quality Control Analyst — Disaster Recovery</div>
+        <ul>
+          <li>Collected, analyzed, and audited data in an emergency disaster recovery scenario with high accuracy and strict government compliance requirements.</li>
+          <li>Ensured personally identifiable information was handled in accordance with federal standards throughout all phases of data collection.</li>
+          <li>Provided corrective guidance to Tier 1 analysts, identifying data quality failures and establishing remediation paths.</li>
+          <li>Communicated effectively with a highly diverse population to develop peer relationships and deliver relevant resources.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job-divider"></div>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">Phillip Milgram, M.D.</div>
+        <div class="location">Carlsbad, CA</div>
+        <div class="dates">Jun 2013 — Jan 2019</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Practice Manager / Strategic Operations Lead</div>
+        <ul>
+          <li>Directed operations across multiple medical and aesthetic practices, supporting expansion into new specialties and additional office locations.</li>
+          <li>Implemented HIPAA-compliant documentation systems and EMR workflows to streamline billing, scheduling, and patient communications.</li>
+          <li>Spearheaded process improvements that increased cosmetic procedure close rates from 20% to 97% through systematic overhaul of marketing, consultation, and sales processes.</li>
+          <li>Designed and executed marketing strategies including branding, SEO, and patient outreach — driving consistent growth in new patient acquisition.</li>
+          <li>Managed vendor relationships, equipment procurement, inventory control, and multi-location scheduling coordination.</li>
+          <li>Supervised, hired, and trained both front and back-office staff; served as primary liaison for patients, staff, and vendors.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job-divider"></div>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="company">San Diego Laser Centers</div>
+        <div class="location">La Jolla, CA</div>
+        <div class="dates">Mar 2011 — Oct 2013</div>
+      </div>
+      <div class="job-content">
+        <div class="role-title">Practice Manager</div>
+        <ul>
+          <li>Oversaw day-to-day operations of a client concierge-focused aesthetic practice, maximizing business profitability and patient services flow.</li>
+          <li>Managed scheduling for staff, patient procedures, and rented laser equipment across multiple locations to ensure efficient utilization.</li>
+          <li>Interviewed, hired, and trained employees; provided ongoing support and coaching at every operational level.</li>
+          <li>Reinforced compliance with new procedure implementation and operational protocols.</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding-bottom: 80px;">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-block">
+      <h3>B.S. Information Technology — In Progress</h3>
+      <div class="edu-school">Capella University · Specialization: Information Security</div>
+      <ul>
+        <li>Information Governance, PCI and HIPAA Compliance, HI-TECH Framework</li>
+        <li>Organizational Security, Incident Response, Disaster Recovery, Business Continuity</li>
+        <li>Operating System Hardening — Windows Server, Linux Server</li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-name">Desdemona DeAntoni</div>
+  <div class="footer-links">
+    <a href="/cdn-cgi/l/email-protection#17537264537256796378797e574e767f78783974787a"><span class="__cf_email__" data-cfemail="8cc8e9ffc8e9cde2f8e3e2e5ccd5ede4e3e3a2efe3e1">[email&#160;protected]</span></a>
+    <a href="https://www.linkedin.com/in/desdemona-deantoni-58627392/" target="_blank">LinkedIn</a>
+    <a href=
